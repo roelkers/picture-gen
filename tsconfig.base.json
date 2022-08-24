@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@myorg/database": ["libs/database/src/index.ts"],
+      "@myorg/pubsub": ["libs/pubsub/src/index.ts"],
+      "@myorg/types": ["libs/types/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

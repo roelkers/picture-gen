@@ -2,6 +2,10 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "mouse-events": "apps/mouse-events"
+    "database": "libs/database",
+    "mouse-events": "apps/mouse-events",
+    "picture-service": "apps/picture-service",
+    "pubsub": "libs/pubsub",
+    "types": "libs/types"
   }
 }
