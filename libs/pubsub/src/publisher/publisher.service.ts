@@ -3,7 +3,7 @@ import { PubSub } from '@google-cloud/pubsub'
 import { IMouseEvent } from '@myorg/types'
 
 @Injectable()
-export class PublisherService {
+export class PubsubPublisherService {
   private pubsub: PubSub
   private readonly topicName = 'clicks'
 

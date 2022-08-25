@@ -1,2 +1,3 @@
 export * from './lib/pubsub.module';
-export * from './pubsub/pubsub.service'
+export * from './publisher/publisher.service'
+export * from './subscriber/subscriber.service'

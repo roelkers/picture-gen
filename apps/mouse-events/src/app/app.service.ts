@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { IMouseEvent } from '@myorg/types';
-import { PubsubService } from '@myorg/pubsub';
+import { PubsubPublisherService } from '@myorg/pubsub';
 
 @Injectable()
 export class AppService {
   constructor(
-    private readonly pubsubService: PubsubService
+    private readonly pubsubPublisherService: PubsubPublisherService
   ) {}
 
   pushMouseEvent(event: IMouseEvent) {
-    this.pubsubService.pushMouseEvent(event)
+    this.pubsubPublisherService.pushMouseEvent(event)
   } 
 }
