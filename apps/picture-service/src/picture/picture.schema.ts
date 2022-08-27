@@ -5,15 +5,27 @@ const pointSchema = new mongoose.Schema({
   y: Number
 })
 
+const mouseEventSchema = new mongoose.Schema({
+  type: String,
+  x: Number,
+  y: Number,
+  pictureId: String
+})
+
 export const PictureSchema = new mongoose.Schema({
   id: String,
   name: String,
   strokes: [{
     begin: pointSchema,
     end: pointSchema,
+    color: String
   }],
   points: [
     pointSchema
   ],
-  color: String
+  lastEvent: {
+    time: Date,
+    data: mouseEventSchema,
+    color: String
+  } 
 });

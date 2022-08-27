@@ -1,3 +1,5 @@
+import { PubsubMessage } from "@google-cloud/pubsub/build/src/publisher"
+
 export interface IMouseEvent {
   type: 'click' | 'double-click',
   x: number,
@@ -16,7 +18,17 @@ export interface IPicture {
   strokes: [{
     begin: IPoint,
     end: IPoint,
+    color: IPoint,
   }],
   points: IPoint[],
-  color: string
+  lastEvent: {
+    time: Date,
+    data: IMouseEvent,
+    color: string
+  } 
+}
+
+export interface IPubsubMessage extends PubsubMessage{
+  ack() : void
+  nack(): void
 }

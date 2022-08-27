@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PubSub, Subscription } from '@google-cloud/pubsub'
+import { PubsubMessage } from '@google-cloud/pubsub/build/src/publisher';
 
 @Injectable()
 export class PubsubSubscriberService {
@@ -23,7 +24,7 @@ export class PubsubSubscriberService {
     }
   }
 
-  async subscribe(handler: () => void) {
+  async subscribe(handler: (message: PubsubMessage) => void) {
     this.pubsub = new PubSub({ projectId: 'mouse-events' })
     this.pubsub.topic(this.topicName).subscription(this.subscriptionName)
     .on('message', handler)
