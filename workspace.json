@@ -6,6 +6,7 @@
     "mouse-events": "apps/mouse-events",
     "picture-service": "apps/picture-service",
     "pubsub": "libs/pubsub",
+    "svg-generator": "libs/svg-generator",
     "types": "libs/types"
   }
 }
