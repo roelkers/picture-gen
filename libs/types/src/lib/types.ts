@@ -15,16 +15,20 @@ export interface IPoint {
 export interface IPicture {
   id: string,
   name: string,
+  width: number,
+  height: number,
   strokes: [{
     begin: IPoint,
     end: IPoint,
-    color: IPoint,
+    color: string,
+    width: number
   }],
   points: IPoint[],
   lastEvent: {
     time: Date,
     data: IMouseEvent,
-    color: string
+    color: string,
+    width: number
   } 
 }
 

@@ -7,7 +7,7 @@ export class SVG {
       `<svg version="1.1"
          width="${width}" height="${height}"
          xmlns="http://www.w3.org/2000/svg"
-       />\n`
+       >\n`
     )
   }
 
@@ -29,9 +29,9 @@ export class SVG {
     return this
   }
 
-  line(x1: number, y1: number, x2: number, y2: number, fill: string) {
+  line(x1: number, y1: number, x2: number, y2: number, fill: string, width = 1) {
     this.concat(
-      `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" fill="${fill}" />\n`
+      `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${fill}" stroke-width=${width} />\n`
     ) 
     return this
   }

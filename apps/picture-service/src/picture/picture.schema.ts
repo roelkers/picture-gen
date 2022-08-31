@@ -14,11 +14,14 @@ const mouseEventSchema = new mongoose.Schema({
 
 export const PictureSchema = new mongoose.Schema({
   id: String,
+  width: Number,
+  height: Number,
   name: String,
   strokes: [{
     begin: pointSchema,
     end: pointSchema,
-    color: String
+    color: String,
+    width: String
   }],
   points: [
     pointSchema
@@ -26,6 +29,7 @@ export const PictureSchema = new mongoose.Schema({
   lastEvent: {
     time: Date,
     data: mouseEventSchema,
-    color: String
+    color: String,
+    width: String
   } 
 });
