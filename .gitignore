@@ -33,6 +33,11 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+credentials
+terraform/vars.sh
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/.terraform
 
 # System Files
 .DS_Store
