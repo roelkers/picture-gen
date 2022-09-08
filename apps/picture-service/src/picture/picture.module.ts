@@ -5,7 +5,9 @@ import { PictureModel } from './picture.model'
 import { DatabaseModule } from '@myorg/database'
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    DatabaseModule.forRoot()
+  ],
   providers: [PictureService, PictureModel],
   controllers: [PictureController],
   exports: [PictureModel]

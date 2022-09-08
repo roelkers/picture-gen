@@ -38,6 +38,7 @@ terraform/vars.sh
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 terraform/.terraform
+*.env
 
 # System Files
 .DS_Store

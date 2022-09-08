@@ -3,9 +3,17 @@ import { EventSubscriberModule } from '../event-subscriber/event-subscriber.modu
 import { EventSubscriberService } from '../event-subscriber/event-subscriber.service';
 import { PictureModule } from '../picture/picture.module';
 import { PubsubModule } from '@myorg/pubsub'
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [EventSubscriberModule, PictureModule, PubsubModule],
+  imports: [
+    EventSubscriberModule,
+    PictureModule,
+    PubsubModule,
+    ConfigModule.forRoot({
+      isGlobal: true
+    })
+  ],
   controllers: [],
   providers: [EventSubscriberService],
 })
