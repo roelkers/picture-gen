@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PubSub, Subscription } from '@google-cloud/pubsub'
 import { PubsubMessage } from '@google-cloud/pubsub/build/src/publisher';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class PubsubSubscriberService {
@@ -8,8 +9,12 @@ export class PubsubSubscriberService {
   private readonly topicName = 'clicks'
   private readonly subscriptionName = 'clicksSubscription'
 
+  constructor(
+    private readonly configService: ConfigService
+  ) {}
+
   async onModuleInit() {
-    this.pubsub = new PubSub({ projectId: 'mouse-events' })
+    this.pubsub = new PubSub({ projectId: this.configService.get('PROJECT_ID') })
     try {
       await this.pubsub.createTopic(this.topicName);
       console.log(`Topic ${this.topicName} created.`);
