@@ -10,6 +10,39 @@ variable "subnetwork" { default = "" }
 variable "ip_range_pods" { default = "" }
 variable "ip_range_services" { default = "" }
 
+resource "google_pubsub_topic" "clicksTopic" {
+  name = "clicks"
+
+  labels = {
+    app = "picture"
+  }
+
+  message_retention_duration = "86600s"
+}
+
+resource "google_pubsub_subscription" "clicks" {
+  name  = "clicksSubscription"
+  topic = google_pubsub_topic.clicksTopic.name
+
+  ack_deadline_seconds = 20
+
+  labels = {
+    app = "picture"
+  }
+
+  message_retention_duration = "1200s"
+  retain_acked_messages      = true
+
+  expiration_policy {
+    ttl = "300000.5s"
+  }
+  retry_policy {
+    minimum_backoff = "10s"
+  }
+
+  enable_message_ordering    = false
+}
+
 ## GKE Cluster
 module "gke" {
   source  = "terraform-google-modules/kubernetes-engine/google"

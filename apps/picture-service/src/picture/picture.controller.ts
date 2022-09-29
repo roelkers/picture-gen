@@ -1,4 +1,4 @@
-import { Get, Header, Controller, Param, Query } from '@nestjs/common';
+import { Get, Header, Controller, Param, Query, NotFoundException } from '@nestjs/common';
 import { PictureService } from './picture.service';
 
 @Controller('picture')
@@ -13,7 +13,7 @@ export class PictureController {
   async getPicture(
     @Query('id') pictureId: string
   ) {
-    const svg = await this.pictureService.getPicture(pictureId)  
-    return `<html><body>${svg}</body></html>` 
+      const svg = await this.pictureService.getPicture(pictureId)
+      return `<html><body>${svg}</body></html>` 
   }
 }

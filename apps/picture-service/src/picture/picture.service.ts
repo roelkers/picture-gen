@@ -12,15 +12,17 @@ export class PictureService {
   ) {}
 
   async getPicture(id: string) {
-    console.log(id)
     const picture = await this.pictureModel.findOne({ id })
+    const svg = new SVG(500, 500)
+
     if(!picture) {
-      throw new NotFoundException()
+      return svg.text(250, 250, "Picture not found.").end().src
     }
-    
-    const svg = new SVG(picture.width, picture.height)
 
     const { strokes } = picture
+    if(strokes.length <= 0) {
+      svg.text(250, 250, "No strokes in picture yet.").end().src
+    }
     for(const stroke of strokes) {
       const { x: x1, y: y1 } = stroke.begin
       const { x: x2, y: y2 } = stroke.end

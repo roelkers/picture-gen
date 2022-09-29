@@ -33,7 +33,6 @@ terraform {
       version = "3.1.0"
     }
   }
-  }
 }
 
 provider "google" {
